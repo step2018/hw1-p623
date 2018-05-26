@@ -47,7 +47,7 @@ for line in dictionaryWords:
         if moji in li:
             if moji==k[len(k)-1]:
                 Ans.append(A)
-                point.append(pt)
+                point.append(((pt+1)*(pt+1)))
             else:
                 li.remove(moji)
         else:
