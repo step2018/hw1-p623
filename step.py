@@ -60,7 +60,7 @@ while y<len(Ans):
     dic[Ans[y]]=point[y]
     y+=1
 
-sorted_dic=sorted(dic.items(),key=lambda z:z[1], reverse=True)
+sorted_dic=sorted(dic.items(),key=lambda z:z[1], reverse=False)
 
 for z,v in sorted_dic:
     print(z,v)
