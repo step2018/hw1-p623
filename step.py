@@ -42,7 +42,7 @@ for line in dictionaryWords:
     li=[]
     for lis in l:
         li.append(lis)
-    x=0
+    
     for moji in k:
         if moji in li:
             if moji==k[len(k)-1]:
