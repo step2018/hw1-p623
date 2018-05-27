@@ -16,9 +16,8 @@ l.sort()
 #辞書にある全ての単語について"q","u"の入力を"qu"にする
 dictionaryWords=open("dictionary.words.txt","r")
 for line in dictionaryWords:
-    k=list(line)
+    k=list(line.rstrip()) # rstripで空白を簡単に消せる（これでもし空白じゃなかったら間違って意味のある文字は消されない）
     #なぜか出てきた"\n"を消す(なんで出てきたか分からない)
-    del k[len(k)-1]
     m=0
     while m<len(k):
         if k[m]=="q":
@@ -33,6 +32,7 @@ for line in dictionaryWords:
     for K in k:
         K.lower
         A+=K
+        # たくさんの 「K == ... or K == ...」の代わりにdictを使った方が分かりやすいかもしれない（例えば pt+=scores[K]）。
         #単語Aのそれぞれの文字が何ポイント得られるのか計算
         if K=="j" or K=="k" or K=="qu" or K=="x" or K=="z":
             pt+=3
@@ -51,7 +51,7 @@ for line in dictionaryWords:
     #それぞれアルファベット順に並べているのでFalseの時、早めにFalseと決まる(?)
     for moji in k:
         if moji in li:
-            if moji==k[len(k)-1]:
+            if moji==k[len(k)-1]: # <- これは多分「最後の文字まで処理できたら候補として残す」として使おうとしていると思いますけど、以下の「文字の重複」の部分と関係があります：最後の文字が重複されていたら、一回目で終了していると思います（例えばhopesを入力したら「possess」が出ています）
                 Ans.append(A)
                 point.append(((pt+1)*(pt+1)))
             else:
