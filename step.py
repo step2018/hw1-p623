@@ -10,7 +10,6 @@ while i<len(l):
         pass
     i+=1
 l.sort()
-print(l)
 
 dictionaryWords=open("dictionary.words.txt","r")
 for line in dictionaryWords:
